@@ -1,0 +1,46 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="num">
+      <th mat-header-cell *matHeaderCellDef> num </th>
+      <td mat-cell *matCellDef="let element"> {{element.num}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef> first name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> last name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="joiningDate">
+      <th mat-header-cell *matHeaderCellDef> joining Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.joiningDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nationality">
+      <th mat-header-cell *matHeaderCellDef> nationality </th>
+      <td mat-cell *matCellDef="let element"> {{element.nationality}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="identityDocumentType">
+      <th mat-header-cell *matHeaderCellDef> identity Document Type</th>
+      <td mat-cell *matCellDef="let element"> {{element.identityDocumentType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="identityNumber">
+      <th mat-header-cell *matHeaderCellDef> identity Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.identityNumber}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

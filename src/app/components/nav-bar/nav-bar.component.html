@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    
+    <div class="justify-self-start">
+      <span>Aftas    |  </span>
+    </div>
+     <div>
+      <a mat-button routerLink="members">Members</a>
+     <a mat-button routerLink="competition">Competitions</a>
+     <a mat-button [routerLink]="['/results', competitionCode]">Results</a>
+     </div>
+  
+    </mat-toolbar>
+  
+  
+  <style>
+    .mat-toolbar{
+    background-color: cornflowerblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  .mat-button{
+     color: white;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+  </style>
