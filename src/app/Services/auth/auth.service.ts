@@ -8,8 +8,8 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   url: string = "http://localhost:8080/api/auth";
   isAuthenticated : boolean = false;
-  roles : any;
-  username !: string;
+  roles !: any;
+  email : any;
   jwt !: string;
 
   constructor(private http:HttpClient) {
@@ -18,8 +18,10 @@ export class AuthService {
       this.isAuthenticated = true;
       this.jwt = token;
       const decodedJwt : any = jwtDecode(this.jwt);
-      this.username = decodedJwt.username;
-      this.roles = decodedJwt.auth;
+      this.email = decodedJwt.sub;
+      this.roles = decodedJwt.aut;
+      console.log("from the nav component : username", this.email)
+      console.log("from the nav component : decoded jwt", decodedJwt)
     }
    }
 
@@ -41,8 +43,17 @@ export class AuthService {
     this.isAuthenticated = true;
     this.jwt = response['token'];
     let decodedJwt : any = jwtDecode(this.jwt);
-    this.username = decodedJwt.username;
+    this.email = decodedJwt.username;
     this.roles = decodedJwt.auth;
     localStorage.setItem("jwt", this.jwt);
+   }
+
+   logout(){
+    this.isAuthenticated = false;
+    this.email = undefined;
+    this.roles = [];
+    this.jwt = '';
+    localStorage.removeItem("jwt");
+
    }
 }

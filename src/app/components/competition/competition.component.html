@@ -1,6 +1,34 @@
-
-<div style=" display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h3>List of Competitions</h3>
-    <table-competition></table-competition>
-    
-</div>
+<div class="container mt-4">
+    <h2>Rankings</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Number of Participants</th>
+            <th>Location</th>
+            <th>Amount</th>
+            <th>Action</th> <!-- Added column for action -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of datasource">
+            <td>{{ element.code }}</td>
+            <td>{{ element.date }}</td>
+            <td>{{ element.startTime }}</td>
+            <td>{{ element.endTime }}</td>
+            <td>{{ element.numberOfParticipants }}</td>
+            <td>{{ element.location }}</td>
+            <td>{{ element.amount }}</td>
+            <td>
+              <button class="btn btn-primary" routerLink="/results/{{element.code}}">See Results {{element.code}}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultTableComponent } from './result-table.component';
+import { ForbidenComponent } from './forbiden.component';
 
-describe('ResultTableComponent', () => {
-  let component: ResultTableComponent;
-  let fixture: ComponentFixture<ResultTableComponent>;
+describe('ForbidenComponent', () => {
+  let component: ForbidenComponent;
+  let fixture: ComponentFixture<ForbidenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ResultTableComponent]
+      declarations: [ForbidenComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ResultTableComponent);
+    fixture = TestBed.createComponent(ForbidenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

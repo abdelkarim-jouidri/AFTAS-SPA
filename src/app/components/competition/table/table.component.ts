@@ -14,11 +14,9 @@ const ELEMENT_DATA: CompetitionDTO[] = [];
   styleUrls: ['./table.component.css'],
   templateUrl:'./table.component.html' ,
   standalone: true,
-  imports: [MatTableModule],
 })
 export class TableCompetition{
-  displayedColumns: string[] = ['code', 'date', 'startTime', 'endTime', 'numberOfParticipants', 'location', 'amount'];
-  dataSource = new MatTableDataSource<CompetitionDTO>(ELEMENT_DATA);
+  datasource : any;
 
   constructor(private competitionService: CompetitionServiceService) {}
 
@@ -30,7 +28,7 @@ export class TableCompetition{
   fetchCompetitionData(): void {
     this.competitionService.getAllCompetitions().subscribe(
       (data) => {
-        this.dataSource = new MatTableDataSource<CompetitionDTO>(data);
+        this.datasource = data.data.content;
         console.log(data)
       },
       (error) => {

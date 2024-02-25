@@ -4,8 +4,10 @@
       <span>Aftas    |  </span>
     </div>
      <div>
-      <a mat-button routerLink="members">Members</a>
-     <a mat-button routerLink="competition">Competitions</a>
+      <a *ngIf="isAuthorized && isManager" mat-button routerLink="members">Members</a>
+     <a *ngIf="isAuthorized" mat-button routerLink="competition">Competitions</a>
+     <a *ngIf="isAuthorized" mat-button >  |  </a>
+     <a *ngIf="isAuthorized" mat-button routerLink="login" (click)="handleLogout()">Logout</a>
      </div>
   
     </mat-toolbar>

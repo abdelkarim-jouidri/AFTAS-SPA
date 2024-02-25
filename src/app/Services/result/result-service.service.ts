@@ -11,7 +11,7 @@ export class ResultServiceService {
   private url = "http://localhost:8080/api/rankings/"
 
   getAllResults(competitionCode: string): Observable<any>{
-    const apiUrl = this.url+"${resultId}/results"
-    return this.http.get(this.url)
+    const apiUrl = this.url+`${competitionCode}/results`
+    return this.http.get(apiUrl)
   }
 }

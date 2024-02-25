@@ -12,7 +12,7 @@ export class CompetitionServiceService {
 
   constructor(private http:HttpClient) { }
 
-  getAllCompetitions(): Observable<CompetitionDTO[]>{
+  getAllCompetitions(): Observable<any>{
     const apiUrl = this.url+'competitions/all';
     return this.http.get<any>(apiUrl);
   }

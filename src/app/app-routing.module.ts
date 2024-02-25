@@ -7,12 +7,15 @@ import { TableCompetition } from './components/competition/table/table.component
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './_helpers/guards/auth/auth.guard';
+import { ForbidenComponent } from './components/forbiden/forbiden.component';
+import { ManagerGuard } from './_helpers/guards/manager/manager.guard';
 const routes: Routes = [
   {path:'competition', component: CompetitionComponent, canActivate:[AuthGuard]},
-  {path:'members', component: MembersComponent, canActivate:[AuthGuard]},
+  {path:'members', component: MembersComponent, canActivate:[AuthGuard, ManagerGuard]},
   {path:'results/:id', component: ResultsComponent},
   {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent}
+  {path:'register', component:RegisterComponent},
+  {path:'unauthorizd', component:ForbidenComponent}
 
 ];
 
