@@ -13,6 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableCompetition } from './components/competition/table/table.component';
 import { MembersTableComponent } from './components/members/members-table/members-table.component';
 import { ResultTableComponent } from './components/results/result-table/result-table.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterLoginSwitcherComponent } from './components/register-login-switcher/register-login-switcher.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +24,10 @@ import { ResultTableComponent } from './components/results/result-table/result-t
     CompetitionComponent,
     MembersComponent,
     ResultsComponent,
+    LoginComponent,
+    RegisterComponent,
+    RegisterLoginSwitcherComponent,
+    
     
   ],
   imports: [
@@ -31,7 +39,8 @@ import { ResultTableComponent } from './components/results/result-table/result-t
     TableCompetition,
     MembersTableComponent,
     ResultTableComponent,
-
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

@@ -30,7 +30,7 @@ export class TableCompetition{
   fetchCompetitionData(): void {
     this.competitionService.getAllCompetitions().subscribe(
       (data) => {
-        this.dataSource = new MatTableDataSource<CompetitionDTO>(data.data.content);
+        this.dataSource = new MatTableDataSource<CompetitionDTO>(data);
         console.log(data)
       },
       (error) => {
