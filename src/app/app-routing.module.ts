@@ -6,11 +6,11 @@ import { ResultsComponent } from './components/results/results.component';
 import { TableCompetition } from './components/competition/table/table.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './_helpers/guards/auth/auth.guard';
 const routes: Routes = [
-  {path:'competition', component: CompetitionComponent},
-  {path:'members', component: MembersComponent},
+  {path:'competition', component: CompetitionComponent, canActivate:[AuthGuard]},
+  {path:'members', component: MembersComponent, canActivate:[AuthGuard]},
   {path:'results/:id', component: ResultsComponent},
-  {path:'table', component: TableCompetition},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent}
 
