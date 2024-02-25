@@ -9,7 +9,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CompetitionComponent } from './components/competition/competition.component';
 import { MembersComponent } from './components/members/members.component';
 import { ResultsComponent } from './components/results/results.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TableCompetition } from './components/competition/table/table.component';
 import { MembersTableComponent } from './components/members/members-table/members-table.component';
 import { ResultTableComponent } from './components/results/result-table/result-table.component';
@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterLoginSwitcherComponent } from './components/register-login-switcher/register-login-switcher.component';
+import { AuthInterceptorInterceptor } from './_helpers/interceptors/auth-interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,9 @@ import { RegisterLoginSwitcherComponent } from './components/register-login-swit
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi : true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
